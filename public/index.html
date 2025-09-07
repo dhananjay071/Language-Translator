@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Translator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-language"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Universal Translator</h1>
+                    <div class="tagline">Break language barriers with AI-powered translation</div>
+                </div>
+            </div>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <span class="stat-number">106</span>
+                    <span class="stat-label">Languages</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Translations</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Free</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="translator-container">
+                <div class="language-selector">
+                    <div class="language-group">
+                        <label for="fromLanguage">From</label>
+                        <select id="fromLanguage" class="language-select">
+                            <option value="auto">Detect Language</option>
+                        </select>
+                    </div>
+                    
+                    <button id="swapLanguages" class="swap-btn" title="Swap languages">
+                        <i class="fas fa-exchange-alt"></i>
+                    </button>
+                    
+                    <div class="language-group">
+                        <label for="toLanguage">To</label>
+                        <select id="toLanguage" class="language-select">
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="translation-area">
+                    <div class="input-section">
+                        <div class="textarea-container">
+                            <textarea 
+                                id="inputText" 
+                                placeholder="Enter text to translate..."
+                                maxlength="5000"
+                            ></textarea>
+                            <div class="char-count">
+                                <span id="charCount">0</span>/5000
+                            </div>
+                        </div>
+                        <div class="input-actions">
+                            <button id="clearInput" class="action-btn" title="Clear text">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <button id="copyInput" class="action-btn" title="Copy text">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                            <button id="speakInput" class="action-btn" title="Speak input text">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="output-section">
+                        <div class="textarea-container">
+                            <textarea 
+                                id="outputText" 
+                                placeholder="Translation will appear here..."
+                                readonly
+                            ></textarea>
+                            <div class="detected-language" id="detectedLanguage"></div>
+                        </div>
+                        <div class="output-actions">
+                            <button id="copyOutput" class="action-btn" title="Copy translation">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                            <button id="speakOutput" class="action-btn" title="Speak translation">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="translate-actions">
+                    <button id="translateBtn" class="translate-btn">
+                        <i class="fas fa-language"></i>
+                        <span>Translate</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Instant Translation</h3>
+                    <p>Get translations in real-time with Google's powerful AI</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>100+ Languages</h3>
+                    <p>Support for over 100 languages worldwide</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-magic"></i>
+                    <h3>Auto Detection</h3>
+                    <p>Automatically detect source language</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 Universal Translator. Powered by Google Translate API.
+                <br> Designed and developed by DHANANJAY N. SUSHIR
+            </p>
+            
+        </footer>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-language fa-spin"></i>
+            <p>Translating...</p>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
